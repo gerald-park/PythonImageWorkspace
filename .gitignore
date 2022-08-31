@@ -1,2 +1,5 @@
 myenv/
 *.xlsx
+!Attendees.xlsx
+!NameTag.pptx
+.gitignore.bak

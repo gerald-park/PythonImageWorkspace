@@ -3,3 +3,4 @@ myenv/
 !Attendees.xlsx
 !NameTag.pptx
 .gitignore.bak
+*checkpoint.ipynb

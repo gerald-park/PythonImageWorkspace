@@ -35,20 +35,22 @@ def getTextInRowCol(tb, row, col) :
 
 def GetItemsList(tbl, cells, i):
     item_no = []
-    if i < 6 : # left
-        op_num = getTextInRowCol(tb, cells.op_num.row, cells.op_num.col)
-        item_no = getTextInRowCol(tb, cells.item_no.row + i, cells.item_no.col)
-        des = getTextInRowCol(tb, cells.desciption.row  + i, cells.desciption.col )
-        qty = getTextInRowCol(tb, cells.qty.row + i, cells.qty.col)
+    try:
+        if i < 6 : # left
+            op_num = getTextInRowCol(tb, cells.op_num.row, cells.op_num.col)
+            item_no = getTextInRowCol(tb, cells.item_no.row + i, cells.item_no.col)
+            des = getTextInRowCol(tb, cells.desciption.row  + i, cells.desciption.col )
+            qty = getTextInRowCol(tb, cells.qty.row + i, cells.qty.col)
 
-    else: # right
-        op_num = getTextInRowCol(tb,cells.op_num.row, cells.op_num.col)
-        item_no = getTextInRowCol(tb,cells.item_no.row + i - 6, cells.item_no.col + 12)
-        des = getTextInRowCol(tb,cells.desciption.row  + i - 6, cells.desciption.col + 9)
-        qty = getTextInRowCol(tb,cells.qty.row + i - 6, cells.qty.col + 8)
-    
-    item_list = [op_num,item_no,des,qty]         
-    return item_list
+        else: # right
+            op_num = getTextInRowCol(tb,cells.op_num.row, cells.op_num.col)
+            item_no = getTextInRowCol(tb,cells.item_no.row + i - 6, cells.item_no.col + 12)
+            des = getTextInRowCol(tb,cells.desciption.row  + i - 6, cells.desciption.col + 9)
+            qty = getTextInRowCol(tb,cells.qty.row + i - 6, cells.qty.col + 8)
+        item_list = [op_num, item_no, des, qty]   
+        return item_list
+    except:
+        pass     
 
 
 # define first items
@@ -66,7 +68,7 @@ for sld_no in range(0, len(prs.slides)):
         continue
     for i in range(0, 12):
         it = GetItemsList(tb,item, i)
-        if not it[2]:
+        if it and not it[3].isnumeric():
             continue
         else:
             df.loc[len(df.index)] = it

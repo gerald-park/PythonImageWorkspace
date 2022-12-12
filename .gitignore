@@ -5,5 +5,5 @@ myenv/
 .gitignore.bak
 *checkpoint.ipynb
 /PyQT5GeeksCoders/venv/
-/Part4 - SOPDataExportAutomation/DOCX/Standalone/dist
-/Part4 - SOPDataExportAutomation/DOCX/Standalone/build
+/Part4 - SOPDataExportAutomation/DOCX/Standalone/dist/
+/Part4 - SOPDataExportAutomation/DOCX/Standalone/build/

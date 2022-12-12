@@ -4,3 +4,4 @@ myenv/
 !NameTag.pptx
 .gitignore.bak
 *checkpoint.ipynb
+/PyQT5GeeksCoders/venv/
